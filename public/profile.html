@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/css/profile.css"/>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="custom-navbar container-fluid">
+            <div class="left">
+                <img src="images/logo.png" style="width: 80px;">
+                <a class="custom-brand navbar-brand" href="#">Manvi72 Auctions</a>
+            </div>
+            <div class="right">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="custom-ul navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="place-auction.html">Auction</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                About Us
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Our Mission</a></li>
+                                <li><a class="dropdown-item" href="#">Testimonials</a></li>
+                                <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            </ul>
+                        </li>
+                        <li><button class="logout-btn" onclick="location.href='home.html'">Logout</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-4">
+        <h2>Profile</h2>
+        <div class="profile-container">
+            <!-- User Info Section -->
+            <div class="mb-4">
+                <h3>My Information</h3>
+                <div class="mb-3">
+                    <label for="firstname" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstname" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="lastname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastname" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" disabled>
+                </div>
+                <button class="btn btn-primary" id="edit-btn">Edit</button>
+                <button class="btn btn-success d-none" id="save-btn">Save</button>
+            </div>
+        </div>
+            
+        <!-- Auctions Section -->
+        <div class="mb-4">
+            <h3>My Auctions</h3>
+            <div class="row row-cols-5 g-3" id="auctions-container">
+                <!-- Auction products will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Biddings Section -->
+        <div>
+            <h3>My Biddings</h3>
+            <div class="row row-cols-5 g-3" id="biddings-container"></div>
+                <!-- Biddings products will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between edit and view modes
+        document.getElementById('edit-btn').addEventListener('click', () => {
+            document.getElementById('firstname').disabled = false;
+            document.getElementById('lastname').disabled = false;
+            document.getElementById('edit-btn').classList.add('d-none');
+            document.getElementById('save-btn').classList.remove('d-none');
+        });
+
+        document.getElementById('save-btn').addEventListener('click', async () => {
+            const firstname = document.getElementById('firstname').value;
+            const lastname = document.getElementById('lastname').value;
+
+            try {
+                const response = await fetch('/api/update-user-info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ firstname, lastname, email })
+                });
+
+                if (response.ok) {
+                    alert('Profile updated successfully');
+                    // Disable inputs and switch buttons
+                    document.getElementById('firstname').disabled = true;
+                    document.getElementById('lastname').disabled = true;
+                    document.getElementById('email').disabled = true;
+                    document.getElementById('edit-btn').classList.remove('d-none');
+                    document.getElementById('save-btn').classList.add('d-none');
+                } else {
+                    alert('Failed to update profile');
+                }
+            } catch (error) {
+                console.error('Error updating profile:', error);
+            }
+        });
+        // Fetch and populate user info
+        async function loadUserInfo() {
+            try {
+                const response = await fetch('/api/user-info');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+    
+                // Log the fetched data for debugging
+                console.log('Fetched user info:', data);
+    
+                document.getElementById('firstname').value = data.firstname || '';
+                document.getElementById('lastname').value = data.lastname || '';
+                document.getElementById('email').value = data.email || '';
+            } catch (error) {
+                console.error('Error fetching user info:', error);
+            }
+        }
+    
+        // Fetch and populate user auctions
+        async function loadUserAuctions() {
+            try {
+                const response = await fetch('/api/user-auctions');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const auctions = await response.json();
+                
+                console.log('Fetched auctions:', auctions); // Log fetched auctions
+
+                const auctionsContainer = document.getElementById('auctions-container');
+                auctionsContainer.innerHTML = ''; // Clear the container
+
+                if (auctions.length === 0) {
+                    auctionsContainer.innerHTML = '<p>No auctions found.</p>';
+                    return;
+                }
+
+                auctions.forEach(auction => {
+                    const auctionCard = document.createElement('div');
+                    auctionCard.classList.add('col', 'auction-card');
+                    auctionCard.innerHTML = `
+                        <div class="card">
+                            <img src="${auction.image}" class="card-img-top" alt="${auction.productName}">
+                            <div class="card-body">
+                                <h5 class="card-title">${auction.productName}</h5>
+                                <p class="card-text"><strong>Description:</strong> ${auction.productDescription}</p>
+                                <p class="card-text"><strong>Minimum Bid:</strong> $${auction.minimumBid}</p>
+                                <p class="card-text"><strong>Current Bid:</strong> $${auction.currentBid || auction.minimumBid}</p>
+                                <p class="card-text"><strong>End Time:</strong> ${new Date(auction.endTime).toLocaleString()}</p>
+                                <button class="btn btn-warning" onclick="editAuction('${auction._id}')">Edit</button>
+                                <button class="btn btn-danger" onclick="deleteAuction('${auction._id}')">Delete</button>
+                            </div>
+                        </div>
+                    `;
+                    auctionsContainer.appendChild(auctionCard);
+                });
+            } catch (error) {
+                console.error('Error fetching auctions:', error);
+            }
+        }
+
+        function editAuction(auctionId) {
+            // Redirect or show an edit form
+            window.location.href = `/edit-auction.html?id=${auctionId}`;
+        }
+    
+        function deleteAuction(auctionId) {
+            if (confirm('Are you sure you want to delete this auction?')) {
+                fetch(`/api/delete-auction?id=${auctionId}`, { method: 'DELETE' })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Auction deleted successfully');
+                            location.reload();
+                        } else {
+                            alert('Failed to delete auction');
+                        }
+                    })
+                    .catch(error => console.error('Error deleting auction:', error));
+            }
+        }
+
+        // Fetch and populate user biddings
+        async function loadUserBiddings() {
+            try {
+                const response = await fetch('/api/user-biddings');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const biddings = await response.json();
+
+                console.log('Fetched biddings:', biddings); // Log the response for debugging
+
+                // Fetch auction details for each bidding
+                const auctionPromises = biddings.map(bidding => 
+                    fetch(`/api/auction-details?id=${bidding.productId}`).then(res => res.json())
+                );
+                const auctions = await Promise.all(auctionPromises);
+
+                const biddingsContainer = document.getElementById('biddings-container');
+                biddingsContainer.innerHTML = ''; // Clear the container
+
+                if (biddings.length === 0) {
+                    biddingsContainer.innerHTML = '<p>No biddings found.</p>';
+                    return;
+                }
+
+                biddings.forEach((bidding, index) => {
+                    const auction = auctions[index];
+                    const image = auction.image || 'default-image.jpg'; // Fallback image
+                    const productName = auction.productName || 'Unknown Product';
+                    const amount = bidding.amount !== undefined ? `$${bidding.amount}` : 'N/A';
+                    const currentBid = auction.currentBid !== undefined ? `$${auction.currentBid}` : 'N/A';
+
+                    const biddingCard = document.createElement('div');
+                    biddingCard.classList.add('col', 'bidding-card');
+                    biddingCard.innerHTML = `
+                        <div class="card">
+                            <img src="${image}" class="card-img-top" alt="${productName}">
+                            <div class="card-body">
+                                <h5 class="card-title">${productName}</h5>
+                                <p class="card-text"><strong>My Bid Amount:</strong> ${amount}</p>
+                                <p class="card-text"><strong>Current Bid Amount:</strong> ${currentBid}</p>
+                            </div>
+                        </div>
+                    `;
+                    biddingsContainer.appendChild(biddingCard);
+                });
+            } catch (error) {
+                console.error('Error fetching biddings:', error);
+            }
+        }
+
+        // Initialize profile page
+        document.addEventListener('DOMContentLoaded', () => {
+            loadUserInfo();
+            loadUserAuctions();
+            loadUserBiddings();
+        });
+    </script>
+</body>
+</html>

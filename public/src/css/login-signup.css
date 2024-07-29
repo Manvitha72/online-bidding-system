@@ -1,0 +1,245 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.custom-navbar {
+    background-color: #e6d5e4;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+}
+.custom-brand {
+    font-weight: 30px;
+    font-size: 24px;
+}
+.login-container {
+    display: flex;
+    height: 85vh;
+    max-width: 100%;
+    margin-top: 100px;
+}
+.heading {
+    color: rgb(32, 80, 162);
+    text-align: left;
+    font-size: 24px;
+}
+.login-text {
+    color: rgb(102, 111, 128);
+}
+.image-container {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 150px;
+}
+.image {
+    max-width: 100%;
+    height: auto;
+}
+.form-container {
+    margin-left: 800px;
+    overflow-y: auto;
+    width: 100%;
+    max-height: 85vh;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 500px;
+}
+.form-group {
+    margin-bottom: 10px;
+}
+.labels {
+    display: block;
+    margin-bottom: 2px;
+}
+.inputs {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background-color: #f7f6f8;
+}
+.form-group.button {
+    display: flex;
+    justify-content: center;
+}
+.submit-btn {
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(32, 80, 162);
+    color: white;
+    border-radius: 10px;
+    width: 150px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.submit-btn:hover {
+    background-color: rgb(32, 135, 180);
+    transform: scale(1.05);
+}
+@media (max-width: 1200px) {
+    .custom-navbar {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    
+    .custom-brand {
+        font-size: 20px; 
+    }
+    .left img {
+        width: 60px;
+    }
+    .login-container {
+        flex-direction: column;
+        margin: 0;
+        height: auto;
+    }
+
+    .image-container {
+        position: relative;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .image {
+        width: 600px;
+    }
+
+    .form-container {
+        margin-top: 30px;
+        margin-left: 0;
+        padding: 20px;
+        width: 100%;
+        max-height: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-navbar {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    .custom-brand {
+        font-size: 18px; 
+    }
+    .logo {
+        width: 50px;
+    }
+    .login-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .image-container {
+        margin: 20px;
+    }
+    .image {
+        margin-top: 30px;
+        width: 400px;
+    }
+    .form-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-navbar {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .custom-brand {
+        font-size: 16px; 
+    }
+    .logo {
+        width: 40px;
+    }
+    .heading {
+        font-size: 28px;
+    }
+}
+
+/* Password Toggle */
+
+.password-container {
+    position: relative;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.password-toggle-icon i {
+    font-size: 18px;
+    line-height: 1;
+    color: rgb(32, 80, 162);
+    transition: color 0.3s ease-in-out;
+}
+
+/* Alert and Errors */
+
+.alertalert-danger{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    background: #f7f7f7;
+    color: #000000;
+    padding: 20px;
+}
+.error{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    
+}
+.mssg{
+    border: 1px solid #bf1515;
+    border-radius: 4px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+.err_p{
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 13px;
+}
+.error_img{
+    height:20px; 
+    width:20px;
+}
+.text-danger{
+    color: red;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+}
+.text-safe{
+    color: rgb(76, 220, 37);
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+}
+.disabled{
+    background-color: rgb(224, 224, 224);
+}

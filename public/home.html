@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/css/home.css"/>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="custom-navbar container-fluid">
+            <div class="left">
+                <img src="images/logo.png" style="width: 80px;">
+                <a class="custom-brand navbar-brand" href="#">Manvi72 Auctions</a>
+            </div>
+            <div class="right">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="custom-ul navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" href="login.html">Auction</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" href="login.html">Bidding</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        About Us
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Our Mission</a></li>
+                        <li><a class="dropdown-item" href="#">Testimonials</a></li>
+                        <li><a class="dropdown-item" href="#">FAQ</a></li>
+                    </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="login-link" href="login.html">Login</a>
+                    </li>
+                    <li><button class="login-btn" onclick="location.href='signup.html'">Get started</button></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="homepage">
+        <div class="container overflow-hidden text-center">
+            <div class="row gx-5">
+              <div class="left-text col">
+               <div class="p-3">
+                    <h1 class="home-text">Your Gateway to Extraordinary Finds</h1>
+                    <p class="home-sub-text">Unlock deals, bid smart, and seize the moment with our online bidding bonanza!</p>
+                    <button class="watch-now">Watch Now</button>
+               </div>
+              </div>
+              <div class="right-image col">
+                <div class="image-wrapper p-3">
+                    <img src="images/girl-image.png" alt="Girl">
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="container text-center">
+        <div class="welcome-container mb-4">
+            <h2 id="welcome-text">Explore <span class="blue-text">Auctions</span></h2>
+        </div>
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3" id="product-container">
+            <!-- Product cards will be inserted here dynamically -->
+        </div>
+    </div>
+    <footer class="footer bg-dark text-white py-4 mt-auto">
+        <div class="footer-container text-center">
+            <div class="row">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="images/logo.png" style="width: 40px;" class="me-2">
+                    <h5 class="mb-0">Manvi72 Auctions</h5>
+                </div>
+                <div class="col-lg-4 mb-3 mb-lg-0">
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Products</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">About us</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-3 mb-lg-0">
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Auctions</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Bidding</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-3">Follow Us</h5>
+                    <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-github"></i></a>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <p class="mb-0">&copy; 2024, All Rights Reserved by Genix</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        async function loadProducts() {
+            try {
+                const response = await fetch('/api/products');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const products = await response.json();
+                const productContainer = document.getElementById('product-container');
+                
+                products.forEach(product => {
+                    const endTime = new Date(product.endTime);
+                    const now = new Date();
+                    const timeLeft = endTime - now;
+
+                    const productCard = document.createElement('div');
+                    productCard.classList.add('col');
+                    productCard.innerHTML = `
+                        <div class="card product-card">
+                            <img src="${product.image}" class="card-img-top" alt="${product.productName}">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.productName}</h5>
+                                <p class="card-text"><strong>Minimum Bid:</strong> $${product.minimumBid}</p>
+                                <p class="card-text"><strong>Current Bid:</strong> $${product.currentBid}</p>
+                                <p class="card-text"><strong>Time Left:</strong> <span class="timer" data-end-time="${product.endTime}"></span></p>
+                                <button class="btn btn-primary bid-now">Bid Now</button>
+                            </div>
+                        </div>
+                    `;
+                    productContainer.appendChild(productCard);
+                });
+
+                // Update timers every second
+                setInterval(() => {
+                    document.querySelectorAll('.timer').forEach(timerElement => {
+                        const endTime = new Date(timerElement.dataset.endTime);
+                        const now = new Date();
+                        const timeLeft = endTime - now;
+                        timerElement.innerText = formatTimeLeft(timeLeft);
+                        if (timeLeft <= 0) {
+                            timerElement.innerText = 'Auction Ended';
+                        }
+                    });
+                }, 1000);
+
+                // Add event listeners for bid buttons and product cards
+                document.querySelectorAll('.bid-now').forEach(button => {
+                    button.addEventListener('click', () => {
+                        window.location.href = 'login.html';
+                    });
+                });
+
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const loginLink = document.getElementById('login-link');
+                        loginLink.classList.add('highlight-bg');
+                        setTimeout(() => {
+                            loginLink.classList.remove('highlight-bg');
+                        }, 1000); // Highlight for 1 second
+                    });
+                });
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        }
+
+        function formatTimeLeft(timeLeft) {
+            if (timeLeft <= 0) {
+                return 'Auction Ended';
+            }
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            return `${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
+</body>
+</html>

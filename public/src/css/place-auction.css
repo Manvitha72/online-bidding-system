@@ -1,0 +1,132 @@
+/* General Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Style */
+.custom-navbar {
+    background-color: #e6d5e4;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+}
+.custom-brand {
+    font-weight: 20px;
+    font-size: 24px;
+}
+.custom-ul .nav-item{
+    margin-right: 15px;
+}
+.bi-person-fill {
+    font-size: 1.5rem;
+}
+.logout-btn {
+    margin: 5px;
+    padding: 0 20px;
+    background-color: rgb(215, 16, 16);
+    color: white;
+    border-radius: 10px;
+}
+/* Page Container Style */
+.container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #f7f6f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Style */
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: rgb(32, 80, 162);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: rgb(32, 135, 180);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .custom-navbar {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    
+    .custom-brand {
+        font-size: 20px; 
+    }
+    .container {
+        margin-top: 70px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-navbar {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    .custom-brand {
+        font-size: 18px; 
+    }
+    .container {
+        margin-top: 50px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-navbar {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .custom-brand {
+        font-size: 16px; 
+    }
+    .container {
+        margin-top: 30px;
+        padding: 10px;
+    }
+}

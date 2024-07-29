@@ -1,0 +1,208 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.custom-navbar {
+    background-color: #e6d5e4;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+}
+.custom-brand {
+    font-weight: 20px;
+    font-size: 24px;
+}
+.custom-ul .nav-item{
+    margin-right: 15px;
+}
+.bi-person-fill {
+    font-size: 1.5rem;
+}
+.highlight-bg {
+    background-color: rgb(32, 80, 162) !important;
+    color: white !important;
+    border-radius: 5px;
+}
+.homepage {
+    margin-top: 100px;
+}
+.blue-text {
+    color: blue;
+}
+.watch-now, .login-btn, .bid-now {
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(32, 80, 162);
+    color: white;
+    border-radius: 10px;
+    width: 150px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.watch-now:hover, .login-btn:hover, .bid-now:hover {
+    background-color: rgb(32, 135, 180);
+    transform: scale(1.05);
+}
+.logout-btn {
+    margin: 5px;
+    padding: 0 20px;
+    background-color: rgb(215, 16, 16);
+    color: white;
+    border-radius: 10px;
+}
+.right-image img {
+    width: 550px; 
+}
+.left-text {
+    margin-top: 70px;
+}
+.home-text {
+    font-size: 60px;
+    text-align: left;
+}
+.home-sub-text {
+    font-size: 20px;
+    text-align: left;
+}
+.welcome-container {
+    text-align: left;
+    margin-bottom: 20px;
+}
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-img-top {
+    object-fit: cover;
+    height: 200px; /* Fixed height for the image */
+}
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-card {
+    margin-bottom: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.product-card .card-body {
+    padding: 1rem;
+    flex-grow: 1;
+}
+.product-card .card-text {
+    margin-bottom: 0.5rem; /* Reduce the margin between text lines */
+}
+.prod-des-container {
+    padding: 50px;
+}
+
+/* To gray out if product is sold/ auction ended */
+.card.sold-out {
+    background-color: #f8f9fa; /* Light gray background */
+    border: 1px solid #e9ecef; /* Gray border */
+    opacity: 0.6; /* Reduce opacity */
+}
+.card.sold-out .current-bid-text {
+    color: #dc3545; /* Red color for sold message */
+}
+.card .btn-view-details {
+    display: none; /* Hide View Details button initially */
+}
+.card.sold-out .btn-view-details {
+    display: inline-block; /* Show View Details button if sold out */
+}
+
+@media (max-width: 992px) {
+    .custom-navbar {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    
+    .custom-brand {
+        font-size: 20px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-navbar {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    .custom-brand {
+        font-size: 18px; 
+    }
+    .left-text {
+        margin-top: 30px;
+    }
+    .home-text {
+        font-size: 40px; 
+    }
+
+    .home-sub-text {
+        font-size: 16px; 
+    }
+
+    .watch-now {
+        width: 120px; 
+    }
+    .right-image img {
+        width: 400px; 
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-navbar {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .custom-brand {
+        font-size: 16px; 
+    }
+    .left-text {
+        margin-top: 10px;
+    }
+    .home-text {
+        font-size: 32px; 
+    }
+
+    .home-sub-text {
+        font-size: 14px; 
+    }
+
+    .right-image img {
+        width: 250px; 
+    }
+}
+.footer {
+    background-color: #343a40; 
+    color: white;
+    width: 90%; 
+    margin-left: auto;
+    margin-right: auto;
+}
+#product-container {
+    margin-bottom: 20px; 
+}
+@media (min-width: 992px) {
+    .footer-container {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+.footer h5 {
+    font-size: 18px;
+}
